@@ -18,11 +18,7 @@ class TennisGame1:
         result = ""
         tempScore=0
         if (self.p1points==self.p2points):
-            result = {
-                0 : "Love-All",
-                1 : "Fifteen-All",
-                2 : "Thirty-All",
-            }.get(self.p1points, "Deuce")
+            result = self.get_result()
         elif (self.p1points>=4 or self.p2points>=4):
             minusResult = self.p1points-self.p2points
             if (minusResult==1):
@@ -47,6 +43,13 @@ class TennisGame1:
                     3 : "Forty",
                 }[tempScore]
         return result
+
+    def get_result(self) -> str:
+        return {
+            0 : "Love-All",
+            1 : "Fifteen-All",
+            2 : "Thirty-All",
+        }.get(self.p1points, "Deuce")
 
 
 class TennisGame2:
